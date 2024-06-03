@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   root "home#index"
   get 'home/index'
 
+  get 'sig_in', to: 'sessions#new'
+  post 'sig_in', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+  get 'sign_up', to: 'registrations#new'
+  post 'sign_up', to: 'registrations#create'
+
   get 'cat', to: 'cat#index'
   get 'cat/new', to: 'cat#new_cat'
   post 'cat', to: 'cat#create'
