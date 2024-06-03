@@ -11,16 +11,16 @@
     </header>
     <main class="main login">
       <section class="uwu">
-        <h2><%= t('.forgot_your_password') %></h2>
+        <h2 class="title_login"><%= t('.forgot_your_password') %></h2>
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
           <%= bootstrap_devise_error_messages! %>
 
         <div class="form-group">
           <%= f.label :email %>
-          <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+          <%= f.email_field :email, autofocus: true, placeholder: "me@example.com", autocomplete: 'email', class: 'form-control' %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group form-btn">
           <%= f.submit t('.send_me_reset_password_instructions'), class: 'btn btn-primary' %>
         </div>
       <% end %>
