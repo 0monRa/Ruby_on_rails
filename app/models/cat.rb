@@ -1,7 +1,7 @@
 class Cat < ApplicationRecord
     validates :name, presence: true
 
-    belongs_to :country
+    belongs_to :breed
 
     before_create :set_path
 
