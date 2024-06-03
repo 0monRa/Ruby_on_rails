@@ -3,7 +3,7 @@ class CatController < ApplicationController
       @cat = Cat.find(params[:id])
     end
   
-    def new
+    def new_cat
       @cat = Cat.new
     end
   

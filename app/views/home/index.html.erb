@@ -8,8 +8,8 @@
     <header class="header">
       <h1 class="page__title">GettyCats</h1>
       <div class="header_button">
-          <%= link_to "Login", sig_in_path, class: 'btn' %>
-          <%= link_to "Sign Up", sign_up_path, class: 'btn' %>
+          <%= link_to "Login", signin_path, class: 'btn' %>
+          <%= link_to "Sign Up", signup_path, class: 'btn' %>
       </div>
     </header>
     <main class="main">
@@ -19,8 +19,6 @@
       </div>
       <div class="main_btn">
         <%= button_to 'Create new cat', new_cat_path, method: :get, class: 'btn'%>
-        <%= button_to 'Show All Records', show_all_records_path, method: :get, class: 'btn'%>
-        <%= link_to "New Country", new_country_path, method: :get, class: 'btn' %>
 
       </div>
     </main>
