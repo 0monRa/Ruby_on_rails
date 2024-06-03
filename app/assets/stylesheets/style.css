@@ -56,9 +56,72 @@
     background-color: rgb(122 105 206/0.3);
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.main_btn .btn {
+    border: 1px solid black;
+}
+
+.footer {
+    padding-top: 50px;
+}
+
 
 
 .btn:hover {
     color: rgb(122, 105, 206);
     border: 1px solid rgb(122, 105, 206);
+}
+
+
+
+/* LOGIN */
+.login {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: start; */
+    align-items: center;
+}
+
+.uwu {
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.title_login {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+    padding-top: 5px;
+}
+
+.form-check {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.btn-primary {
+    border: 1px solid black;
+    border-radius: 5px;
+    
+}
+
+.form-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
 }
