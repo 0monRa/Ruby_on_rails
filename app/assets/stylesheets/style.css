@@ -1,4 +1,64 @@
 .page {
     font-size: 18px;
     font-weight: 400;
+    font-family: Raleway, sans-serif;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: white;
+    background-color: black;
+}
+
+.page__title {
+    text-transform: uppercase;
+    padding-left: 20px;
+    /* color: rgb(86, 160, 234);
+    text-shadow: 4px 4px rgb(21, 66, 110);; */
+    font-size: 80px; /*размер заголовка*/
+    font-weight: 700;
+}
+
+.header_button {
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn {
+    text-align: center;
+    border: none;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor: pointer;
+    
+}
+
+.header_button .btn {
+    border: 1px solid white;
+    text-decoration: none;
+}
+
+.main {
+    padding: 40px 20px;
+}
+
+.main_title {
+    font-weight: 700;
+    background-color: rgb(122 105 206/0.3);
+}
+
+
+
+.btn:hover {
+    color: rgb(122, 105, 206);
+    border: 1px solid rgb(122, 105, 206);
 }
