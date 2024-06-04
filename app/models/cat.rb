@@ -1,13 +1,10 @@
 class Cat < ApplicationRecord
     validates :name, presence: true
-
     belongs_to :breed
 
-    before_create :set_path
+    before_validation :set_path, on: :create
 
     def set_path
-        unless path
-            self.path = name
-        end
+        self.path = name.parameterize if path.blank?
     end
 end

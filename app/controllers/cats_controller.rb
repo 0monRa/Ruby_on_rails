@@ -53,6 +53,6 @@ class CatsController < ApplicationController
   end
 
   def cat_params
-    params.require(:cat).permit(:name, :breed_id, :path)
+    params.require(:cat).permit(:name, :breed_id) # Удалите :path отсюда
   end
 end

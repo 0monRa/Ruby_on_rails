@@ -24,8 +24,22 @@
       <div class="content">
         <p>To view the data, click on the button</p>
         <div class="main_link">
+          <% if @cats.any? %>
+            <ul>
+              <% @cats.each do |cat| %>
+                <li>
+                  <%= link_to cat.name, cat_path(cat) %>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>No cats found.</p>
+          <% end %>
           <% if @cat && policy(@cat).create? %>
             <%= link_to "New Cat", new_cat_path, class: "btn" %>
+          <% end %>
+          <% if current_user && current_user.admin? %>
+            <%= link_to "Create New Breed", new_breed_path, class: "btn" %>
           <% end %>
         </div>
       </div>

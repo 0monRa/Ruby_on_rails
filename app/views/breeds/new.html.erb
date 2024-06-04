@@ -1,0 +1,12 @@
+<h1>Create New Breed</h1>
+
+<%= form_with(model: @breed, url: breeds_path) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Breed", class: "btn" %>
+  </div>
+<% end %>

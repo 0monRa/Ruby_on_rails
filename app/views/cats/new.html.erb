@@ -37,11 +37,6 @@
           <%= form.collection_select :breed_id, Breed.all, :id, :name %>
         </div>
 
-        <div class="field">
-          <%= form.label :path %>
-          <%= form.text_field :path %>
-        </div>
-
         <div class="field form-btn">
           <%= form.submit class: 'btn btn-primary'%>
         </div>

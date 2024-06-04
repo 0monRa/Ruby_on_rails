@@ -1,13 +1,11 @@
 class Breed < ApplicationRecord
-    validates :name, presence: true
-
+    validates :name, presence: true, uniqueness: true
     has_many :cats
-
+  
     before_create :set_path
-
+  
     def set_path
-        unless path
-            self.path = name
-        end
+      self.path = name if path.blank?
     end
-end
+  end
+  

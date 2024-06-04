@@ -1,6 +1,6 @@
 require "test_helper"
 
-class BreedControllerTest < ActionDispatch::IntegrationTest
+class BreedsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

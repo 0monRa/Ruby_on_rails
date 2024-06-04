@@ -12,6 +12,10 @@ class User < ApplicationRecord
     self.role == role.to_s
   end
 
+  def admin?
+    role == 'admin'
+  end
+
   # Set default role to 'user' before creating a new user
   before_create :set_default_role
 
