@@ -6,13 +6,15 @@
     <%= stylesheet_link_tag "global.css" %>
   </head>
   <body class="page">
-    <header class="header">
-      <h1 class="page__title">GettyCats</h1>
-      <div class="header_button">
-          <%= link_to "Login", signin_path, method: :get, class: 'btn' %>
-          <%= link_to "Sign Up", signup_path, method: :get, class: 'btn' %>
-      </div>
-    </header>
+   <header class="header">
+  <h1 class="page__title">
+    <a href="<%= root_path %>">GettyCats</a>
+  </h1>
+  <div class="header_button">
+      <%= link_to "Login", signin_path, method: :get, class: 'btn' %>
+      <%= link_to "Sign Up", signup_path, method: :get, class: 'btn' %>
+  </div>
+</header>
     <main class="main">
       <h2 class=main_title>Welcome to the website</h2>
       <div class="content">
