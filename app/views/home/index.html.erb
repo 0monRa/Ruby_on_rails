@@ -8,7 +8,7 @@
   <body class="page">
     <header class="header">
       <h1 class="page__title">
-        <a href="<%= root_path %>">GettyCats</a>
+        <a href="<%= root_path %>" class="title-link">GettyCats</a>
       </h1>
       <div class="header_button">
         <% if user_signed_in? %>
@@ -25,22 +25,24 @@
         <p>To view the data, click on the button</p>
         <div class="main_link">
           <% if @cats.any? %>
-            <ul>
+            <ul class="cat_item">
               <% @cats.each do |cat| %>
-                <li>
-                  <%= link_to cat.name, cat_path(cat) %>
+                <li class="cat_item-list">
+                  <%= link_to cat.name, cat_path(cat), class:'cat-link'%>
                 </li>
               <% end %>
             </ul>
           <% else %>
             <p>No cats found.</p>
           <% end %>
-          <% if @cat && policy(@cat).create? %>
-            <%= link_to "New Cat", new_cat_path, class: "btn" %>
-          <% end %>
-          <% if current_user && current_user.admin? %>
-            <%= link_to "Create New Breed", new_breed_path, class: "btn" %>
-          <% end %>
+          <div class="main_btn">
+            <% if @cat && policy(@cat).create? %>
+              <%= link_to "New Cat", new_cat_path, class: "btn" %>
+            <% end %>
+            <% if current_user && current_user.admin? %>
+              <%= link_to "Create New Breed", new_breed_path, class: "btn" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </main>

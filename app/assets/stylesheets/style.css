@@ -4,7 +4,7 @@
     font-family: Raleway, sans-serif;
     min-height: 100vh;
     display: grid;
-    grid-template-rows: min-content min-content 1fr;
+    grid-template-rows: min-content 1fr min-content;
 }
 
 .header {
@@ -152,3 +152,34 @@
     text-decoration: none;
     border: 1px solid black;
 } 
+
+.main_link .btn:hover {
+    color: rgb(122, 105, 206);
+    border: 1px solid rgb(122, 105, 206);
+}
+
+/* вывод кошаков */
+.cat_item-list {
+    font-weight: 700;
+}
+
+.main_link {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cat-link {
+    text-decoration: none;
+}
+
+.cat-link:hover {
+    color:  rgb(122, 105, 206);
+}
+
+
+.main_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
