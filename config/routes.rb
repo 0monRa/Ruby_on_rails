@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     post 'signup', to: 'devise/registrations#create'
   end
 
-  resources :cat
+  resources :cat, except: :index
 
   get "up" => "rails/health#show", as: :rails_health_check
 
