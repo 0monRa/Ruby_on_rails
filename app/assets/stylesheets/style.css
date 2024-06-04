@@ -130,3 +130,25 @@
     flex-direction: row;
     justify-content: end;
 }
+
+
+/* create new cate */
+.field {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding-top: 5px;
+}
+
+.title-link {
+    text-decoration: none;
+}
+
+.title-link:hover {
+    color: rgb(122, 105, 206);
+}
+
+.main_link .btn {
+    text-decoration: none;
+    border: 1px solid black;
+} 
