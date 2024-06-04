@@ -25,13 +25,36 @@
         <p>To view the data, click on the button</p>
         <div class="main_link">
           <% if @cats.any? %>
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Breed</th>
+                  <% if policy(@cat).update? %>
+                    <th>Actions</th>
+                  <% end %>
+                </tr>
+              </thead>
+              <tbody>
             <ul class="cat_item">
               <% @cats.each do |cat| %>
                 <li class="cat_item-list">
-                  <%= link_to cat.name, cat_path(cat), class:'cat-link'%>
+                  <tr>
+                    <td><%= cat.name %></td>
+                    <td><%= cat.breed.name %></td>
+                    <td>
+                      <% if policy(cat).update? %>
+                        <td>
+                          <%= link_to "Edit", edit_cat_path(cat) %>
+                        </td>
+                      <% end %>
+                    </td>
+                  </tr>
                 </li>
               <% end %>
             </ul>
+            </tbody>
+            </table>
           <% else %>
             <p>No cats found.</p>
           <% end %>

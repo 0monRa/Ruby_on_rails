@@ -1,5 +1,5 @@
 class CatsController < ApplicationController
-  before_action :authenticate_user! # Предполагая, что у вас есть аутентификация пользователей
+  before_action :authenticate_user!
   before_action :set_cat, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -21,7 +21,7 @@ class CatsController < ApplicationController
     @cat = Cat.new(cat_params)
     authorize @cat
     if @cat.save
-      redirect_to @cat, notice: 'Cat was successfully created.'
+      redirect_to root_path, notice: 'Cat was successfully created.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class CatsController < ApplicationController
   def update
     authorize @cat
     if @cat.update(cat_params)
-      redirect_to @cat, notice: 'Cat was successfully updated.'
+      redirect_to root_path, notice: 'Cat was successfully updated.'
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class CatsController < ApplicationController
   def destroy
     authorize @cat
     @cat.destroy
-    redirect_to cats_url, notice: 'Cat was successfully destroyed.'
+    redirect_to root_path, notice: 'Cat was successfully destroyed.'
   end
 
   private
@@ -53,6 +53,6 @@ class CatsController < ApplicationController
   end
 
   def cat_params
-    params.require(:cat).permit(:name, :breed_id) # Удалите :path отсюда
+    params.require(:cat).permit(:name, :breed_id)
   end
 end

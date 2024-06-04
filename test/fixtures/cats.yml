@@ -1,7 +1,9 @@
 tom:
   name: Tom
   breed: british_shorthair
+  user: admin
 
 garfield:
   name: Garfield
   breed: siamese
+  user: user

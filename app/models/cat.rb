@@ -1,5 +1,6 @@
 class Cat < ApplicationRecord
     validates :name, presence: true
+    belongs_to :user
     belongs_to :breed
 
     before_validation :set_path, on: :create

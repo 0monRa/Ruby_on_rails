@@ -19,7 +19,7 @@ class CatPolicy < ApplicationPolicy
   end
 
   def update?
-    user.present? && record.user == user
+    user.present? && (record.user == user || user.admin?)
   end
 
   def destroy?

@@ -18,9 +18,8 @@ class BreedsController < ApplicationController
     def create
       @breed = Breed.new(breed_params)
       authorize @breed
-      @breed.path = @breed.name.parameterize # пример установки значения path на основе имени породы
       if @breed.save
-        redirect_to @breed, notice: 'Breed was successfully created.'
+        redirect_to root_path, notice: 'Breed was successfully created.'
       else
         render :new
       end

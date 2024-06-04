@@ -22,9 +22,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_152714) do
     t.string "name"
     t.string "path"
     t.integer "breed_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["breed_id"], name: "index_cats_on_breed_id"
+    t.index ["user_id"], name: "index_cats_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +43,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_152714) do
   end
 
   add_foreign_key "cats", "breeds"
+  add_foreign_key "cats", "users"
 end
