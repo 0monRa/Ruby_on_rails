@@ -27,7 +27,7 @@
           <% if @cats.any? %>
             <table>
               <thead>
-                <tr>
+                <tr class="table-title">
                   <th>Name</th>
                   <th>Breed</th>
                   <% if policy(@cat).update? %>
@@ -36,24 +36,20 @@
                 </tr>
               </thead>
               <tbody>
-            <ul class="cat_item">
-              <% @cats.each do |cat| %>
-                <li class="cat_item-list">
-                  <tr>
+                <%# <ul class="cat_item"> %>
+                  <% @cats.each do |cat| %>
+                  <tr class="cat-list">
                     <td><%= cat.name %></td>
                     <td><%= cat.breed.name %></td>
                     <td>
                       <% if policy(cat).update? %>
-                        <td>
-                          <%= link_to "Edit", edit_cat_path(cat) %>
-                        </td>
+                        <%= link_to "Edit", edit_cat_path(cat) %>
                       <% end %>
                     </td>
                   </tr>
-                </li>
-              <% end %>
-            </ul>
-            </tbody>
+                  <% end %>
+                <%# </ul> %>
+              </tbody>
             </table>
           <% else %>
             <p>No cats found.</p>
