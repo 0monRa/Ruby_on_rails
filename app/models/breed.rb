@@ -1,6 +1,6 @@
 class Breed < ApplicationRecord
     validates :name, presence: true, uniqueness: true
-    has_many :cats
+    has_many :cats, dependent: :nullify
   
     before_create :set_path
   

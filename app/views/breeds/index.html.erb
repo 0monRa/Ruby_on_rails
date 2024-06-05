@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="UTF-8"/>
+  <%= stylesheet_link_tag "style.css" %>
+  <%= stylesheet_link_tag "global.css" %>
+</head>
+<body class="page">
+  <header class="header">
+    <h1 class="page__title">
+      <a href="<%= root_path %>" class="title-link">GettyCats</a>
+    </h1>
+    <div class="header_button">
+      <% if user_signed_in? %>
+        <%= link_to "Logout", logout_path, method: :delete, class: 'btn' %>
+      <% else %>
+        <%= link_to "Login", signin_path, method: :get, class: 'btn' %>
+        <%= link_to "Sign Up", signup_path, method: :get, class: 'btn' %>
+      <% end %>
+    </div>
+  </header>
+  <main class="main">
+    <h2 class="main_title">All breeds</h2>
+    <div class="content">
+      <div class="main_link">
+        <% if @breeds.any? %>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @breeds.each do |breed| %>
+                <tr>
+                  <td><%= breed.name %></td>
+                  <td>
+                    <%= link_to "Edit", edit_breed_path(breed), class: "btn btn-primary" %>
+                    <%= button_to "Delete", delete_breed_path(breed), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <p>No breeds found.</p>
+        <% end %>
+        <div class="main_btn">
+          <% if current_user && current_user.admin? %>
+            <%= link_to "Create New Breed", new_breed_path, class: "btn" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      xml:space="preserve" 
+      id="_x32_" 
+      width="50" 
+      height="50" 
+      version="1.1" 
+      viewBox="0 0 512 512">
+      <path d="M430.762 126.907c-42.384-89.329-67.753-89.329-78.722-89.329-1.947 0-3.884.167-5.785.482-18.1 3.014-41.374 22.031-69.302 56.579h-41.929c-27.909-34.548-51.202-53.566-69.301-56.579a35.159 35.159 0 0 0-5.758-.482h-.25c-11.108 0-36.412.649-78.499 89.329C34.188 164.608-32.49 256.506 18.091 366.094c49.996 108.328 191.425 108.328 237.907 108.328 46.472 0 187.911 0 237.907-108.318 50.59-109.598-16.096-201.496-63.143-239.197zm37.293 227.254c-41.15 89.134-161.411 91.776-212.056 91.776-50.626 0-170.906-2.642-212.038-91.776-56.969-123.432 60.121-208.886 60.121-208.886s36.551-79.213 55.875-79.213l1.094.093c18.99 3.162 60.14 56.969 60.14 56.969h69.616s41.15-53.807 60.14-56.969l1.094-.093c19.305 0 55.875 79.213 55.875 79.213s117.108 85.454 60.139 208.886z" class="st0"/>
+      <path d="m78.008 314.355 103.738 8.169.742-9.467-103.738-8.16zM76.2 355.496l1.01 9.439 101.235-10.802-1.011-9.44zM330.269 322.524l103.719-8.169-.741-9.458-103.72 8.16zM"></path>
+    </svg>
+  </footer>
+</body>
+</html>

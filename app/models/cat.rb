@@ -1,6 +1,6 @@
 class Cat < ApplicationRecord
     belongs_to :user
-    belongs_to :breed
+    belongs_to :breed, optional: true
   
     validates :name, presence: true
     validates :breed_id, presence: true

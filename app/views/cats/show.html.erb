@@ -31,7 +31,7 @@
 
         <div class="form-group">
           <label>Breed:</label>
-          <p><%= @cat.breed.name %></p>
+          <p><%= @cat.breed.present? ? @cat.breed.name : 'none' %></p>
         </div>
 
         <div class="form-group">

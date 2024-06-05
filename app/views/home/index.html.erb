@@ -23,7 +23,6 @@
     <main class="main">
       <h2 class=main_title>Welcome to the website</h2>
       <div class="content">
-        <p>To view the data, click on the button</p>
         <div class="main_link">
           <% if @cats.any? %>
             <table>
@@ -38,7 +37,7 @@
                 <% @cats.each do |cat| %>
                   <tr class="cat-list">
                     <td><%= link_to cat.name, cat_path(cat), class: 'link-cat' %></td>
-                    <td><%= cat.breed.name %></td>
+                    <td><%= cat.breed.try(:name) || 'None' %></td>
                     <td><%= cat.user.present? ? cat.user.email : 'No owner' %></td>
                   </tr>
                 <% end %>
@@ -52,7 +51,7 @@
               <%= link_to "New Cat", new_cat_path, class: "btn" %>
             <% end %>
             <% if current_user && current_user.admin? %>
-              <%= link_to "Create New Breed", new_breed_path, class: "btn" %>
+              <%= link_to "See All Breeds", breeds_path, class: "btn" %>
             <% end %>
           </div>
         </div>

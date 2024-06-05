@@ -15,7 +15,12 @@ Rails.application.routes.draw do
     resources :breeds, only: [:new, :create]
   end
 
-  resources :breeds, only: [:new, :create]
+  resources :breeds, only: [:index, :new, :create, :edit, :update, :destroy]
+
+  delete 'delete_cat/:id', to: 'cats#destroy', as: 'delete_cat'
+
+  delete 'breeds/:id', to: 'breeds#destroy', as: 'delete_breed'
+
 
   delete 'cats/:id', to: 'cats#destroy', as: 'destroy_cat'
 
