@@ -13,10 +13,10 @@
       <div class="header_button">
         <% if user_signed_in? %>
           <span class="user-email"><%= current_user.email %></span>
-          <%= link_to "Logout", logout_path, method: :delete, class: 'btn' %>
+          <%= link_to "Logout", logout_path, method: :delete, class: 'btn header_btn' %>
         <% else %>
-          <%= link_to "Login", signin_path, method: :get, class: 'btn' %>
-          <%= link_to "Sign Up", signup_path, method: :get, class: 'btn' %>
+          <%= link_to "Login", signin_path, method: :get, class: 'btn header_btn' %>
+          <%= link_to "Sign Up", signup_path, method: :get, class: 'btn header_btn' %>
         <% end %>
       </div>
     </header>

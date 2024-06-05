@@ -20,9 +20,7 @@
 .page__title {
     text-transform: uppercase;
     padding-left: 20px;
-    /* color: rgb(86, 160, 234);
-    text-shadow: 4px 4px rgb(21, 66, 110);; */
-    font-size: 80px; /*размер заголовка*/
+    font-size: 80px; 
     font-weight: 700;
 }
 
@@ -31,8 +29,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: end;
     gap: 10px;
-    
+}
+
+.header_btn{
+    width: 106px;
+}
+
+.user-email {
+    font-size: 22px;
 }
 
 .btn {
@@ -42,8 +48,7 @@
     text-transform: uppercase;
     background-color: transparent;
     cursor: pointer;
-    border-radius: 10px;
-    
+    border-radius: 5px; 
 }
 
 .header_button .btn {
@@ -53,7 +58,7 @@
 
 .user-email {
     margin-left: 10px;
-  }
+}
 
 .main {
     padding: 40px 20px;
@@ -73,7 +78,7 @@
 
 .main_btn .btn {
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .footer {
@@ -90,14 +95,11 @@
     border: 1px solid rgb(122, 105, 206);
 }
 
-
-
 /* LOGIN */
 .login {
     width: auto;
     display: flex;
     flex-direction: column;
-    /* justify-content: start; */
     align-items: center;
 }
 
@@ -137,7 +139,6 @@
     flex-direction: row;
     justify-content: end;
 }
-
 
 /* create new cate */
 .field {
@@ -184,7 +185,6 @@
     color:  rgb(122, 105, 206);
 }
 
-
 .main_btn {
     display: flex;
     flex-direction: row;
@@ -198,8 +198,24 @@
 
 td {
     text-align: center;
+    padding: 5px 0;
 }
 
-.link-edit:hover {
+.link-cat:hover {
     color: rgb(122, 105, 206);
+}
+
+.form-btn .btn {
+    text-decoration: none;
+}
+
+.btn-danger {
+    border: 1px solid black;
+}
+
+.table-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
 }
