@@ -8,7 +8,6 @@ class CatsController < ApplicationController
   end
 
   def show
-    @cat = Cat.find(params[:id])
     authorize @cat
   end
 
@@ -19,10 +18,12 @@ class CatsController < ApplicationController
 
   def create
     @cat = Cat.new(cat_params)
+    @cat.user = current_user
     authorize @cat
     if @cat.save
       redirect_to root_path, notice: 'Cat was successfully created.'
     else
+      puts @cat.errors.full_messages # Добавляем отладочное сообщение
       render :new
     end
   end
@@ -36,6 +37,7 @@ class CatsController < ApplicationController
     if @cat.update(cat_params)
       redirect_to root_path, notice: 'Cat was successfully updated.'
     else
+      puts @cat.errors.full_messages # Добавляем отладочное сообщение
       render :edit
     end
   end
