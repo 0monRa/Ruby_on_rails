@@ -11,6 +11,38 @@
         <a href="<%= root_path %>" class="title-link">GettyCats</a>
       </h1>
     </header>
+    <main class="main login">
+      <section class="uwu">
+        <h2 class="title_login">Edit Cat</h2>
+        <%= form_with(model: @cat, url: cat_path(@cat), method: :patch) do |form| %>
+          <% if @cat.errors.any? %>
+            <div id="error_explanation">
+              <h3><%= pluralize(@cat.errors.count, "error") %> prohibited this cat from being saved:</h3>
+
+              <ul>
+                <% @cat.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= form.label :name %>
+            <%= form.text_field :name %>
+          </div>
+
+          <div class="field">
+            <%= form.label :breed_id %>
+            <%= form.collection_select :breed_id, Breed.all, :id, :name %>
+          </div>
+
+          <div class="field form-btn">
+            <%= form.submit class: 'btn btn-primary'%>
+          </div>
+        <% end %>
+      </section>
+    </main>
     <footer class="footer">
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
