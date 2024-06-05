@@ -11,6 +11,21 @@
         <a href="<%= root_path %>" class="title-link">GettyCats</a>
       </h1>
     </header>
+    <main class="main login">
+      <section class="uwu">
+        <h2 class="title_login">Create New Breed</h2>
+        <%= form_with(model: @breed, url: breeds_path) do |form| %>
+          <div class="form-group">
+            <%= form.label :name %>
+            <%= form.text_field :name %>
+          </div>
+
+          <div class="form-group form-btn">
+            <%= form.submit "Create Breed", class: "btn" %>
+          </div>
+        <% end %>
+      </section>
+    </main>
     <footer class="footer">
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
