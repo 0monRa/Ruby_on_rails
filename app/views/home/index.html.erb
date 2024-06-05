@@ -43,7 +43,7 @@
                     <td><%= cat.breed.name %></td>
                     <td>
                       <% if policy(cat).update? %>
-                        <%= link_to "Edit", edit_cat_path(cat) %>
+                        <%= link_to "Edit", edit_cat_path(cat), class: 'link-edit' %>
                       <% end %>
                     </td>
                   </tr>

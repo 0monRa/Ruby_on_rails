@@ -192,3 +192,7 @@
 td {
     text-align: center;
 }
+
+.link-edit:hover {
+    color: rgb(122, 105, 206);
+}
