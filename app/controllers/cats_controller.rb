@@ -1,10 +1,9 @@
 class CatsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_cat, only: [:show, :edit, :update, :destroy]
 
   def index
     @cats = policy_scope(Cat)
-    @cat = Cat.new
   end
 
   def show
@@ -23,7 +22,6 @@ class CatsController < ApplicationController
     if @cat.save
       redirect_to root_path, notice: 'Cat was successfully created.'
     else
-      puts @cat.errors.full_messages # Добавляем отладочное сообщение
       render :new
     end
   end
@@ -37,7 +35,6 @@ class CatsController < ApplicationController
     if @cat.update(cat_params)
       redirect_to root_path, notice: 'Cat was successfully updated.'
     else
-      puts @cat.errors.full_messages # Добавляем отладочное сообщение
       render :edit
     end
   end
@@ -51,7 +48,7 @@ class CatsController < ApplicationController
   private
 
   def set_cat
-    @cat = Cat.find(params[:id])
+    @cat = Cat.includes(:user, :breed).find(params[:id])
   end
 
   def cat_params

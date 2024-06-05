@@ -1,4 +1,3 @@
-# app/policies/cat_policy.rb
 class CatPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
@@ -11,7 +10,7 @@ class CatPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    true  # Разрешаем всем просматривать детали кота
   end
 
   def create?
@@ -23,6 +22,6 @@ class CatPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.present? && record.user == user
+    user.present? && (record.user == user || user.admin?)
   end
 end

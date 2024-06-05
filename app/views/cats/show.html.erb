@@ -1,62 +1,43 @@
 <!DOCTYPE html>
 <html lang='en'>
-  <head>
-    <meta charset="UTF-8"/>
-    <%= stylesheet_link_tag "style.css" %>
-    <%= stylesheet_link_tag "global.css" %>
-  </head>
-  <body class="page">
-    <header class="header">
-      <h1 class="page__title">
-        <a href="<%= root_path %>" class="title-link">GettyCats</a>
-      </h1>
-      <div class="header_button">
-        <% if user_signed_in? %>
-          <%= link_to "Logout", logout_path, method: :delete, class: 'btn' %>
-        <% else %>
-          <%= link_to "Login", signin_path, method: :get, class: 'btn' %>
-          <%= link_to "Sign Up", signup_path, method: :get, class: 'btn' %>
-        <% end %>
-      </div>
-    </header>
-    <main class="main">
-      <h2 class=main_title>Welcome to the website</h2>
-      <div class="content">
-        <p>To view the data, click on the button</p>
-        <div class="main_link">
-          <% if @cats.any? %>
-            <table>
-              <thead>
-                <tr class="table-title">
-                  <th>Name</th>
-                  <th>Breed</th>
-                  <th>Owner</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @cats.each do |cat| %>
-                  <tr class="cat-list">
-                    <td><%= link_to cat.name, cat_path(cat), class: 'link-cat' %></td>
-                    <td><%= cat.breed.name %></td>
-                    <td><%= cat.user.present? ? cat.user.email : 'No owner' %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          <% else %>
-            <p>No cats found.</p>
-          <% end %>
-          <div class="main_btn">
-            <% if current_user && policy(Cat.new).create? %>
-              <%= link_to "New Cat", new_cat_path, class: "btn" %>
-            <% end %>
-            <% if current_user && current_user.admin? %>
-              <%= link_to "Create New Breed", new_breed_path, class: "btn" %>
-            <% end %>
-          </div>
+<head>
+  <meta charset="UTF-8"/>
+  <%= stylesheet_link_tag "style.css" %>
+  <%= stylesheet_link_tag "global.css" %>
+</head>
+<body class="page">
+  <header class="header">
+    <h1 class="page__title">
+      <a href="<%= root_path %>" class="title-link">GettyCats</a>
+    </h1>
+  </header>
+  <main class="main login">
+    <section class="cat-details">
+      <h2 class="title_login">Cat Details</h2>
+      <div class="cat-info">
+        <div class="form-group">
+          <label>Name:</label>
+          <p><%= @cat.name %></p>
+        </div>
+
+        <div class="form-group">
+          <label>Breed:</label>
+          <p><%= @cat.breed.name %></p>
+        </div>
+
+        <div class="form-group">
+          <label>Owner:</label>
+          <p><%= @cat.user.present? ? @cat.user.email : 'No owner' %></p>
         </div>
       </div>
-    </main>
+
+      <% if current_user && (current_user == @cat.user || current_user.admin?) %>
+        <div class="form-group form-btn">
+          <%= link_to "Edit Cat", edit_cat_path(@cat), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </section>
+  </main>
     <footer class="footer">
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
