@@ -17,5 +17,7 @@ Rails.application.routes.draw do
 
   resources :breeds, only: [:new, :create]
 
+  delete 'cats/:id', to: 'cats#destroy', as: 'destroy_cat'
+
   get "up" => "rails/health#show", as: :rails_health_check
 end

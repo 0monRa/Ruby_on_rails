@@ -34,6 +34,7 @@
       <% if current_user && (current_user == @cat.user || current_user.admin?) %>
         <div class="form-group form-btn">
           <%= link_to "Edit Cat", edit_cat_path(@cat), class: "btn btn-primary" %>
+          <%= button_to "Delete Cat", @cat, method: :delete, data: { confirm: "Are you sure you want to delete this cat?" }, class: "btn btn-danger" %>
         </div>
       <% end %>
     </section>
